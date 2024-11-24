@@ -1,0 +1,888 @@
+:root{
+  --warna1:#2E8B57;
+  --warna2:#8FBC8F;
+  --warna3:#6B8E23;
+  --warna4:#FFFFFF;
+  --warna-head:#f5f5dc50;
+  --bg:#F5F5DC;
+  --warna-logo:#ff6203;
+  --warna-text:#222121;
+}
+*,
+html{
+padding:0;
+margin:0;
+scroll-behavior: smooth;
+}
+body{
+  color:var(--bg);
+}
+
+
+
+
+.navbar {
+  color: var(--warna1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 5%;
+  background-color:  var(--warna-head);
+  border-bottom: 0.7px solid var(--warna-head);
+  position: fixed;
+  font-style: italic;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+}
+.navbar .logo, .map2 {
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--warna1);
+  font-family: serif;
+  animation: blink 10s infinite;
+  text-decoration: none;
+}
+/* Animasi berkedip */
+@keyframes blink {
+
+  20% { opacity: 0; }  /* Hilang */
+  100% { opacity: 1; } /* Kembali tampak */
+}
+
+.navbar .logo span, .map2 span, #chat-header {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--warna-logo);
+  font-family: serif;
+  opacity: 0; /* Awalnya tidak terlihat */
+  animation: fadeIn 10s infinite;
+  display: inline-block;
+}
+
+}
+/* Tambahkan delay untuk setiap huruf */
+.navbar .logo span:nth-child(1) {
+  animation-delay: 0s;
+}
+.navbar .logo span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.navbar .logo span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.navbar .logo span:nth-child(4) {
+  animation-delay: 0.6;
+}
+.navbar .logo span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+.navbar .logo span:nth-child(6) {
+  animation-delay: 1s;
+}
+
+/* Animasi muncul */
+@keyframes fadeIn {
+  20% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 10; transform: translateY(0); }
+}
+
+.navbar .navbar-menu a {
+  margin: 0 1rem;
+  color: var(--warna1);
+  display: inline-block;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+.navbar .navbar-menu a:hover {
+  color: var(--bg);
+}
+.navbar .navbar-menu a::after {
+  content: '';
+  display: block;
+  margin-top: 0.5rem;
+  border-bottom: 1px solid var(--warna-logo);
+  transform: scaleX(0);
+  transition: transform 0.2s linear;
+}
+.navbar .navbar-menu a:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar .navbar-menu a.active {
+  color: var(--warna1); /* Warna link aktif */
+  font-weight: bold;
+}
+.navbar .navbar-extra {
+  font-size: 1rem; 
+  padding: 0.5rem; 
+}
+
+.navbar .navbar-extra a {
+  color: var(--warna1);
+  margin: 0 0.5rem; 
+  font-size: 0.5rem;
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+.search-form {
+  position: absolute;
+  top:3rem;
+  right: 7%;
+  color: var(--warna-logo);
+  width: 40rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+#search-botom:hover{
+  color: var(--warna-head);
+ 
+}
+#search-botom.active{
+  transform: scaleX(0);
+}
+.search-form.active {
+  transform: scaleY(1);
+}
+
+.search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.5rem;
+  color: var(--warna-text);
+  padding: 1rem;
+}
+
+.search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  color: var(--warna-text);
+}
+.shopping-cart{
+    position:absolute;
+    top: 100%;
+    right: -100%;
+    background-color: var(--bg);
+    width: 25rem;
+    height: 100vh;
+    padding: 1 1.5rem;
+    justify-content: center;
+    transition: right 0.3s;
+}
+.shopping-cart.active{
+  right: 0;
+}
+.shopping-item{
+  margin:2 1rem ;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--warna-text);
+  position: relative;
+}
+.shopping-cart h3{
+  font-size: 1.6rem;
+  padding-bottom: 1rem.;
+}
+.harga{
+  font-size: 1.2rem;
+}
+.hapus{
+position: absolute;
+right: 1rem;
+cursor: pointer;
+font-size: 1px;
+}
+.hapus:hover{
+  color: var(--warna-logo);
+  
+}
+.shopping-cart img{
+  height: 5rem;
+  border-radius: 50%;
+}
+.welcome-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.7s ease,
+    visibility 0.5s ease;
+}
+
+.welcome-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.welcome-text {
+    color: var(--warna-logo);
+    font-size: 2rem;
+    font-family: serif;
+    animation: bounce 0.5s ease-out forwards;
+    text-align:left:
+}
+.welcome-text span {
+color: var(--warna1);
+}
+@keyframes bounce {
+    0% {
+        transform: translatex(-100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translatex(20px);
+        opacity: 1;
+    }
+    100% {
+        transform: translatex(0);
+        opacity: 1;
+    }
+}
+ .welcome-container :hover{
+  transform: scale(1.12);
+        }
+
+ .welcome-text a :hover{
+   transform: scale(1.12);
+ }
+
+.hero {
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+  background-image: url('img//small.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  text-align:left:
+}
+.hero::after,
+.hero-pr::after,
+.hero-kontak::after,
+.hero-png::after,
+.hero-prog::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  bottom: 0;
+  background: linear-gradient(0deg, var(--warna4) 3%, var(--warna5)15%);
+}
+.content-pr,
+.content-png,
+.content-kontak,
+.content-prog,
+.content {
+  padding: 1.4rem 7%;
+  max-width: 35rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+  display:flex;
+  
+}
+ .content-pr h1, 
+ .content-prog h1, 
+ .content-kontak h1, 
+ .content-png h1, 
+ .content h1, {
+  font-size: 4rem;
+  color: var(--warna-logo);
+  text-shadow: 1px 1px 3px var(--warna2);;
+  line-height: 1;
+  margin-top: 1rem;
+  font-family: serif;
+  mix-blend-mode: difference; 
+  
+}
+ .content-png h1 span' 
+ .content-kontak h1 span,
+ .content-prog h1 span,
+ .content-pr h1 span,
+ .content h1 span {
+  color: var(--warna1);
+  font-style: italic;
+  mix-blend-mode: difference; 
+}
+.alam-png,
+.alam-prog,
+.alam-pr,
+.alam-kontak,
+.alam {
+  margin-top: 1rem;
+  display: flex;
+  color: var(--warna1);
+  font-family: serif;
+  font-size: 1.5rem;
+  text-decoration: none;
+  max-width: 40rem;
+  mix-blend-mode: difference;
+  text-align:left
+}
+.alam-kontak h3 span,
+.alam-pr h3 span,
+.alam-prog h3 span,
+.alam-png h3 span,
+.alam h3 span{
+ color:var(--warna-logo) ;
+}
+.login,
+.cta-kontak,
+.cta-png,
+.cta-prog,
+.cta-pr,
+.cta {
+  margin-top: 1rem;
+  display: flex;
+  padding: 1rem 1rem;
+  font-size: 2rem;
+  color: var(--bg);
+  background-color: var(--warna-logo);
+  text-decoration: none;
+  border-radius: 1rem;
+  max-width: 15rem;
+  
+  
+
+  
+}
+.hero-pr {
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+  background-image: url('img//tentang-kami.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.hero-kontak {
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+  background-image: url('img//kopi1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.hero-png {
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+  background-image: url('img//alam.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.hero-prog {
+  align-items: center;
+  display: flex;
+  min-height: 100vh;
+  background-image: url('img//kopi.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.provil, .prog , .png , .kon, .produks{
+  padding: 8rem 7% 0rem;
+}
+.provil h2, .prog h2 ,.png h2, .kon h2, .produks h2{
+  text-align: center;
+  font-size: 2,6rem;
+  color: var(--warna1);
+  font-family: serif;
+  margin-bottom: 3rem;
+}
+.provil h2 span, .prog h2 span, .png h2 span, .kon h2 span, .produks span {
+color: var(--warna-logo);;
+}
+/*eleme start*/
+ .provil .provilg, .prog .prog2{
+   display: flex;
+}
+/*gambar start*/
+.provil .provilg .img, .prog .prog2 .prog-img,  {
+  flex: 1 1 30rem;
+}
+.provil .provilg .img img , .prog .prog2 .prog-img img{
+ width: 100℅;
+ display:grid;
+}
+
+.provil .provilg .provil-conten , .prog .prog2 .pro-con {
+  flex:1 1 30rem;
+  padding:0 1rem;
+}
+.provil-conten  h3 , .prog-con h3,.kon h3 , .png-konten h3, .produks-konten h3{
+ color:var(--warna1);
+ font-size: 1.2rem;;
+ text-align: flex;
+ margin-bottom: 1rem;
+}
+.provil-conten h3 span,.prog-con h3 span,.kon h3 span{
+  color:var(--warna-logo);
+}
+ .provil-conten p , .prog-con p, .png-kon p , .kon p{
+ font-size: 1.4rem;
+ margin-bottom:0.8rem ;
+  font-style: italic;
+  font-family: serif;
+  font-weight: 100;
+  line-height: 1.6rem;
+  color:var(--warna-text);
+  display: grid;
+}
+
+
+
+
+
+
+
+
+.png .png-row, .produks-row{
+  display: grid;
+grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+gap: 1.6rem;
+margin-top: 4rem;
+}
+.png .png-cart, .produks-cart{
+ text-align: center;
+ border: 1rem solid var(--warna1);
+ padding: 2rem;
+}
+.png .png-icon, .produks-icon{
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.png .png-icon a, .produks-icon a{
+  width: 4rem;
+  height: 4rem;
+  margin: 0.5;
+  color: var(--warna-text);
+  border: 0.2rem solid var(--warna1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ .png .png-images, .produks-images{
+   padding: 1rem;
+ }
+ .png .png-images img, .produks-images img{
+   height: 20rem;
+   width: 30rem;
+ }
+.png-prce a, .produks-prce a{
+  display:flex;
+  color:var(--warna1);
+}
+.png-prce span, .produks-prce span {
+  color: var(--warna-text);
+  font-family: serif;
+}
+/* Definisi animasi */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 10;
+    transform: scale(1);
+  }
+}
+
+/* Tambahkan animasi ke .png-cart */
+.png-cart {
+  animation: fadeInScale 1s ease-in-out;
+  transition: transform 0.5s;
+}
+
+.png-cart:hover , .eye a:hover{
+  transform: scale(1.12);
+  color: var(--warna-logo);
+  border-color:var(--warna-logo);
+  background-color: var(--warna2);
+  
+}
+.png .png-icon a:hover, .produks-icon a:hover ,.eye a:hover{
+  transform: scale(1.12);
+  color: var(--warna1);
+  border: 0.3rem solid var(--warna-logo);
+ }
+.eye a{
+  width: 4rem;
+  height: 4rem;
+  margin: 0.5;
+  color: var(--warna-text);
+  border: 0.2rem solid var(--warna1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+  .kon .row{
+    display: flex;
+    margin-top: 2rem;
+    background-color: var(--warna4);
+}
+.kon .row .map {
+  flex: 1 1 30rem;
+  width: 10℅;
+  object-fit: cover;
+}
+
+.kon .row form {
+  flex:  1 1 30rem;
+  padding: 3rem;
+  text-align: center;
+}
+  .kon .row form .input-grup {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color:var(--bg);
+  border: 1rem solid #959595; 
+  padding-left: 2rem;
+  }
+ .star{
+   fill: var(--warna-logo);
+ } 
+    
+  
+  
+  #chat-widget {
+  display:block;
+  border: 3px solid var(--warna1);
+  position: center;
+  width: 100;
+  height: 30rem;
+  font-family:serif;
+}
+#chat-header {
+  padding: 5px;
+  text-align: center;
+  background-color: var(--warna-head);
+  width: 95%;
+}
+
+#chat-body {
+  height: 150px;
+  padding: 10px;
+  border-bottom: 1px solid red;
+}
+
+#user-input {
+  width: 100%;
+  height: 5rem;
+  border: 1px solid var(--warna1);
+  
+}
+
+.message.user {
+  text-align:right;
+  color: var(--warna-text);
+  
+}
+
+.message.bot {
+  text-align: left;
+  color: var(--warna-text);
+  
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid var(--warna-logo);
+  width: 1px;
+  height: 2px;
+  animation: spin 2s linear infinite;
+  margin: 1px auto;
+  
+  
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  
+footer{
+  background-color: var(--warna-head);
+  text-align: center;
+  padding: 3rem 0 4rem;
+  margin-top: 3rem;
+}
+footer .sosmed{
+  padding: 1rem 0rem;
+}
+footer .sosmed a{
+  color: var(--warna-text);
+  margin: 1rem;
+}
+footer .sosmed a hover,
+footer .links a hover{
+  color:  var(--warna-logo);
+}
+footer .links{
+  margin-bottom: 1.4rem;
+}
+footer .links a , .credit a{
+  color: var(--warna-text);
+  padding: 7 1rem ;
+  margin: 1rem;
+  text-decoration: none;
+}
+footer .credit p{
+  color: var(--warna-logo);
+  padding: 7 1rem ;
+  margin: 1rem;
+}
+.modal {
+  display: none; /* Modal tersembunyi secara default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang transparan */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Agar modal di atas elemen lain */
+}
+
+.modal-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: red;
+}
+
+
+.modal-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+
+
+.modal-content p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-top: 1.2rem;
+}
+
+.modal-content a {
+  display: flex;
+  gap: 1rem;
+  width: 12rem;
+  background: var(--warna1);
+  color: var(--warna-text);
+  margin-top: 1rem;
+  padding: 1rem 1.6rem;
+}
+@keyframes animasimodal{
+from{
+Top: -300px;
+opacity:0;
+}
+To{
+top: 0;
+opacity: 1;
+  }
+}
+   .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: f;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: flex;
+        }
+        .form-group input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .form-alamat{
+          
+        }
+/*mediquerys*/
+
+/* laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 758px) {
+  html {
+    font-size: 60%;
+  }
+#hamburger-menu {
+    display: inline-block;
+  }
+  #hamburger-menu:hover{
+    color:var(--warna-logo);
+  }
+  
+  .navbar .navbar-menu{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: var(--bg);
+    width: 15rem;
+    height: 100vh;
+    transition: right 0.3s;
+  }
+.navbar .navbar-menu.active {
+    right: 0rem;
+  }
+  .navbar .navbar-menu a {
+    color: var(--warna1);
+    display: block;
+    margin: 1rem 1;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+  .navbar .navbar-menu a::after {
+  transform-origin: 0 0;
+}
+.navbar .navbar-menu a:hover::after {
+  transform: scaleX(0.3);
+}
+.provil .provilg , .prog .prog2, .png2 ,.kon2{
+    flex-wrap: wrap;
+  }
+  .provil .provilg .img img, .prog .prog2.  .prog-img img , .png-img img , .kon-img img{
+    height: 24rem;
+    object-position: center;
+    object-fit: cover;
+  }
+  .provil .provilg .konten , .prog-con , .png-kon , .kon-kon{
+    padding: 0;
+  }
+  .provil .provilg .konten h3 , .prog-con h3, .png-kon h3 , .ko-kon h3{
+    margin-top: 1rem;
+    font-size: 1.4rem;
+  }
+  .kon, .row , .map2 , .input-grup, .modal-content{
+    flex-wrap: wrap;
+  } 
+  .search-form {
+  position: absolute;
+  top: 5.5rem;
+  right: 0%;
+  color: var(--warna1);
+  width: 30rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transform: scaley(0);
+  transform-origin: top;
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+.search-form.active {
+  transform: scaley(1);
+}
+
+.modal-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+/* hp */
+@media (max-width: 460px) {
+  html {
+    font-size: 50%;
+  }
+}

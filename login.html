@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - KRL ARSENA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://m.Youtube.com">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="arsena.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a class="logo"style="font-family: 'Courier New', monospace;">KRL 
+    <span>A</span>
+    <span>R</span>
+    <span>S</span>
+    <span>E</span>
+    <span>N</span>
+    <span>A</span>
+    </a>
+    <div class="navbar-menu">
+      <a class="menu" href="#">home</a>
+      <a class="menu" href="#">beranda</a>
+      <a class="profil" href="#">Profil</a>
+      <a class="posting" href="#">Program</a>
+      <a class="pengurus" href="#">Pengurus</a>
+      <a class="kontaka" href="#">Kontak</a>
+      <a class="prodoks" href="#">produk</a>      
+    </div>
+    <div class="navbar-extra">
+      <a href="#" id="search-botom"><i data-feather="search"></i></a>
+      <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+      <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+    </div>
+  <div class="search-form">
+    <input type="search" id="search-box" placeholder="cari disini...">
+      <label for="search-box"><i data-feather="search"></i></label>
+  </div>
+  </nav> 
+  <section class="hero" id="home">
+    
+    <main class="content">
+             <div id="welcome" class="welcome-container">
+        <div class="welcome-text">
+          <h1>Selamat Datang <span>di KRL ARSENA</span></h1>
+    <h1>Form Login</h1>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required><br><br>
+
+    <button type="submit"class="cta">Login</button>
+  </form>
+  <p>Belum punya akun? <a href="Index.html"class="login">Daftar di sini</a></p>
+
+      <div class="alam"><h3>Demi masa depan yang lebih indah dan sehat Kita jaga Alam<span> Alam Jaga Kita<span></h3>
+      </div>
+      </div>
+      </div>
+    </main>
+  </section>
+  <footer>
+  
+<link rel="stylesheet" href="arsena.css">
+<script src="arsena.js"></script>
+</div>
+  <div class="sosmed">
+     <a href="javascript:void(0)" class="instagramfooter"><i data-feather="instagram"></i></a>
+    <a href="#"><i data-feather="twitter"></i></a>
+    <a href="#"><i data-feather="facebook"></i></a>
+    <a href="#"><i data-feather="tiktok"></i></a>
+    <a href="#"><i data-feather="youtube"></i></a>
+  </div>
+  <div class="links">
+      <a href="#">home</a>
+      <a href="#">beranda</a>
+      <a href="#">Profil</a>
+      <a href="#">Program</a>
+      <a href="#">Pengurus</a>
+      <a href="#">Kontak</a>
+      <a href="#">produk</a>
+  </div>
+  <div class="credit">
+    <p>created by <a href="pemudaarsena@gmail.com">pemuda arsena</a>   &copy:2024;</p>
+  </div>
+</footer>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    feather.replace();
+  </script>
+  <script src="arsena.js"></script>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Ambil data dari localStorage
+      const storedUsername = localStorage.getItem('username');
+      const storedPassword = localStorage.getItem('password');
+
+      if (username === storedUsername && password === storedPassword) {
+        alert('Login berhasil!');
+        window.location.href = 'Home.html'; // Arahkan ke halaman utama
+      } else {
+        alert('Username atau password salah. Silakan daftar jika belum memiliki akun.');
+        window.location.href = 'Index.html'; // Kembali ke halaman daftar
+      }
+    });
+  </script>
+</body>
+</html>
